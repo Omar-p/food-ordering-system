@@ -11,11 +11,10 @@ public class Order extends AggregateRoot<OrderId> {
   private final CustomerId customerId;
   private final ResturantId resturantId;
   private final StreetAddress deliveryAddress;
-  private final OrderStatus orderStatus;
   private final Money price;
   private final List<OrderItem> items;
   private TrackingId trackingId;
-  private OrderStatus status;
+  private OrderStatus orderStatus;
   private List<String> failureMessages;
 
   private Order(Builder builder) {
@@ -24,10 +23,7 @@ public class Order extends AggregateRoot<OrderId> {
     resturantId = builder.resturantId;
     deliveryAddress = builder.deliveryAddress;
     orderStatus = builder.orderStatus;
-    price = builder.price;
-    items = builder.items;
     trackingId = builder.trackingId;
-    status = builder.status;
     failureMessages = builder.failureMessages;
   }
 
@@ -73,11 +69,10 @@ public class Order extends AggregateRoot<OrderId> {
     private CustomerId customerId;
     private ResturantId resturantId;
     private StreetAddress deliveryAddress;
-    private OrderStatus orderStatus;
     private Money price;
     private List<OrderItem> items;
+    private OrderStatus orderStatus;
     private TrackingId trackingId;
-    private OrderStatus status;
     private List<String> failureMessages;
 
     private Builder() {
@@ -124,11 +119,6 @@ public class Order extends AggregateRoot<OrderId> {
 
     public Builder trackingId(TrackingId val) {
       trackingId = val;
-      return this;
-    }
-
-    public Builder status(OrderStatus val) {
-      status = val;
       return this;
     }
 
