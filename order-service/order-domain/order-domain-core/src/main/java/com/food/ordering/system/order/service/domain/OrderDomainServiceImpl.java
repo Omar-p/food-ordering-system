@@ -39,6 +39,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
   @Override
   public void approveOrder(Order order) {
     order.approve();
+    // u may fire an event which will be consumed by client to continue to the delivery process.
     log.info("Order approved successfully. OrderId: {}", order.getId().getValue());
   }
 
